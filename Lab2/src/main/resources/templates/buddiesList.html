@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Address Book Display</title>
+    <style>
+        /* Add some basic styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Address Book</h1>
+
+<table id="addressTable">
+    <tr>
+        <th>ID</th>
+        <th>Buddies</th>
+    </tr>
+</table>
+
+<script>
+    // Fetch the data from backend and populate into the table
+    fetch("http://localhost:8080/addressBooks")
+        .then(response => response.json())
+        .then(data => {
+            let table = document.getElementById("addressTable");
+            data.forEach((addressBook) => {
+                let row = table.insertRow(-1);
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = addressBook.id;
+                addressBook.buddies.forEach((buddy) => {
+                    cell2.innerHTML += `Name: ${buddy.name}, Phone: ${buddy.phoneNumber}<br>`;
+                });
+            });
+        });
+</script>
+
+</body>
+</html>
