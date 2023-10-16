@@ -63,7 +63,7 @@
 		<!-- Thymeleaf -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId> <!-- Switched to Spring Boot's Thymeleaf starter for better integration -->
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 	</dependencies>
 
