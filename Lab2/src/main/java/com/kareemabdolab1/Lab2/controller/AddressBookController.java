@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/addressBooks")
+@CrossOrigin(origins = "https://kareemabdoapp-new.azurewebsites.net")
 public class AddressBookController {
 
     @Autowired

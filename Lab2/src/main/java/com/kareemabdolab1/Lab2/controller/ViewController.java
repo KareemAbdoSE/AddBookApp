@@ -8,6 +8,6 @@ public class ViewController {
 
     @GetMapping("/")
     public String index() {
-        return "buddiesList"; // Assuming you have a file named buddiesList.html
+        return "buddiesList";
     }
 }
