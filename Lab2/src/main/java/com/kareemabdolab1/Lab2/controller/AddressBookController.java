@@ -1,17 +1,14 @@
 package com.kareemabdolab1.Lab2.controller;
 
-import com.kareemabdolab1.Lab2.AddressBook;
+import  com.kareemabdolab1.Lab2.AddressBook;
 import com.kareemabdolab1.Lab2.repository.AddressBookRepository;
 import com.kareemabdolab1.Lab2.repository.BuddyInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.kareemabdolab1.Lab2.*;
 import org.springframework.web.bind.annotation.*;
-import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -43,7 +40,7 @@ public class AddressBookController {
     @PostMapping
     public ResponseEntity<AddressBook> createAddressBook(@RequestBody BuddyInfo buddyInfo) {
         AddressBook newAddressBook = new AddressBook();
-        BuddyInfo newBuddy = buddyInfoRepository.save(buddyInfo);
+        BuddyInfo newBuddy = buddyInfoRepository.save(buddyInfo);  // Make sure this save operation is successful
         newAddressBook.addBuddy(newBuddy);
         AddressBook savedAddressBook = addressBookRepository.save(newAddressBook);
         return new ResponseEntity<>(savedAddressBook, HttpStatus.CREATED);

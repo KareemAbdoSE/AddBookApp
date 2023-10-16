@@ -28,7 +28,6 @@ public class AddressBook {
         this.buddies.remove(buddy);
     }
 
-    // Other getters and setters for 'id' and 'buddies' would go here
     public Long getId() {
         return id;
     }
