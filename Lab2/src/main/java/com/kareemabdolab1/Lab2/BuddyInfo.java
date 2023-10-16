@@ -14,6 +14,7 @@ public class BuddyInfo {
     @JsonIgnore  // This will prevent 'id' from showing up in the JSON
     private Long id;
 
+    private String address;
     private String name;
     private String phoneNumber;
 
@@ -30,6 +31,20 @@ public class BuddyInfo {
         this.phoneNumber = phoneNumber;
     }
 
+    public BuddyInfo(String name, String phoneNumber , String address) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
     public Long getId() {
         return id;
     }

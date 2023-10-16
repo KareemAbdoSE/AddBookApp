@@ -23,12 +23,13 @@
     <tr>
         <th>ID</th>
         <th>Buddies</th>
+        <th>Address</th>
     </tr>
 </table>
 
 <script>
-    // Fetch the data from backend and populate into the table
-    fetch("http://localhost:8080/addressBooks")
+    // Fetch the data from the backend and populate into the table
+    fetch("https://kareemabdoapp-new.azurewebsites.net/addressBooks")
         .then(response => response.json())
         .then(data => {
             let table = document.getElementById("addressTable");
@@ -36,9 +37,12 @@
                 let row = table.insertRow(-1);
                 let cell1 = row.insertCell(0);
                 let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2); // Added this for Address
                 cell1.innerHTML = addressBook.id;
                 addressBook.buddies.forEach((buddy) => {
                     cell2.innerHTML += `Name: ${buddy.name}, Phone: ${buddy.phoneNumber}<br>`;
+                    cell3.innerHTML += buddy.address ? buddy.address : "No Address"; // Check if address is present
+                    cell3.innerHTML += '<br>';
                 });
             });
         });

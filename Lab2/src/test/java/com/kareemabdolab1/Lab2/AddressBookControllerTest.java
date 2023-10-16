@@ -62,4 +62,15 @@ public class AddressBookControllerTest {
         this.mockMvc.perform(delete("/addressBooks/1"))
                 .andExpect(status().isNoContent());
     }
+
+    @Test
+    public void testBuddyInfoAddress() throws Exception {
+        String jsonPayload = "{\"name\": \"John\", \"phoneNumber\": \"1234567890\", \"address\": \"123 Main St\"}";
+
+        mockMvc.perform(post("/addressBooks")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonPayload))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.buddies[0].address").value("123 Main St"));
+    }
 }

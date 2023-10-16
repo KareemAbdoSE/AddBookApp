@@ -22,7 +22,7 @@ public class Lab2Application {
 			buddyInfoRepository.deleteAll();
 
 			// Saving new data
-			BuddyInfo buddy1 = new BuddyInfo("Kareem", "123-456-7890");
+			BuddyInfo buddy1 = new BuddyInfo("Kareem", "123-456-7890", "1233 colonel by drive");
 
 			AddressBook addressBook = new AddressBook();
 			addressBook.addBuddy(buddy1);

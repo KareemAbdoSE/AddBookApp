@@ -43,6 +43,8 @@ public class BuddyInfoController {
         if (existingBuddy != null) {
             existingBuddy.setName(buddyInfo.getName());
             existingBuddy.setPhoneNumber(buddyInfo.getPhoneNumber());
+            // Assuming you've added an 'address' field in the BuddyInfo model
+            existingBuddy.setAddress(buddyInfo.getAddress());
             buddyInfoRepository.save(existingBuddy);
         }
         return new ResponseEntity<>(existingBuddy, HttpStatus.OK);
